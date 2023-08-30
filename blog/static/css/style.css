@@ -1,0 +1,20 @@
+body{
+    background-color:rgb(106, 165, 196);
+}
+
+
+
+.container {
+    margin: 10px;
+    padding: 8px;
+    background-color: #b5b2b2;
+}
+
+.caixa {
+    border: 2px;
+    padding: 10px;
+    background-color: #8a8e8d;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Flow Blog</title>
+</head>
+<body>
+    {% block cards %}
+    <div class="container" >
+    <div class="row">
+    
+      
+    {% for postagens in post_template %}
+    <div class="col-lg-4 col-md-12 mb-4">
+    <div class="card bg-transparent">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="{{postagens.imagem.url}}" class="img-fluid" />
+          <a href="{% url 'blog:detail' postagens.id %}">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{postagens.titulo}}</h5>
+          <a href="{% url 'blog:detail' postagens.id %}" class="btn btn-primary">Leia +</a>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    
+    </div>
+  </div>
+{% endblock %}
+</body>
+</html>

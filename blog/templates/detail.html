@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+<div class="container">
+<h1>{{postagem.titulo}}</h1>
+<img src="{{postagem.imagem.url}}" alt="" class="img-fluid">
+<div class="container">
+<p>{{postagem.texto}}</p>
+<p>{{postagem.pub_date}}</p>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="caixa">
+    <h2>Comentários</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{formulário.as_p}}
+      <button type="submit">Enviar</button>
+    </form>
+      <br>
+      {% if not comentários %}
+      <p>Sem comentários</p>
+      {% else %}
+    
+      {% for comentario in comentários %}
+      <p>{{comentario.nome}}</p>
+      <p>{{comentario.texto}}</p>
+      <p>{{comentario.com_date}}</p>
+      <br>
+      {% endfor %}
+
+      {% endif %}
+  
+    
+  </div>
+</div>
+
+{% block msg_sucesso %}
+  
+  {% endblock %}
+{% endblock %}
